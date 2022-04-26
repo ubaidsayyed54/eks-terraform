@@ -4,14 +4,14 @@ module "eks_blueprints" {
   # EKS CLUSTER
   cluster_version           = "1.21"
   vpc_id                    = "vpc-0ccfd4c43b995bcad"                                      # Enter VPC ID
-  private_subnet_ids        = ["subnet-00d406ec7c35b55f7", "subnet-0730694ec26fbb28e", "subnet-0cbaefef60a89f6c5"]     # Enter Private Subnet IDs
+  private_subnet_ids        = [["subnet-00d406ec7c35b55f7", "subnet-0730694ec26fbb28e", "subnet-0cbaefef60a89f6c5"]]     # Enter Private Subnet IDs
 
   # EKS MANAGED NODE GROUPS
   managed_node_groups = {
     mg_m5 = {
       node_group_name = "managed-ondemand"
       instance_types  = ["m5.large"]
-      subnet_ids      = ["subnet-00d406ec7c35b55f7", "subnet-0730694ec26fbb28e", "subnet-0cbaefef60a89f6c5"]
+      subnet_ids      = [["subnet-00d406ec7c35b55f7", "subnet-0730694ec26fbb28e", "subnet-0cbaefef60a89f6c5"]]
     }
   }
 }
